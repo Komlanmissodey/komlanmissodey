@@ -1171,162 +1171,137 @@
             </div>
 
 
-            <!-- ==========================================
-                 FORMULAIRE WEB3FORMS
-            =========================================== -->
-
             <form
-                id="contactForm"
-                class="contact-form"
-                action="https://api.web3forms.com/submit"
-                method="POST"
-            >
+    id="contactForm"
+    class="contact-form"
+    method="POST"
+>
 
-                <!--
-                    IMPORTANT :
-                    Remplace cette valeur par ta clé Web3Forms.
-                -->
+    <!-- CLÉ WEB3FORMS -->
+    <input
+        type="hidden"
+        name="access_key"
+        value="bf85ae27-7fdc-48fa-bdac-7b53ba458b35"
+    >
 
-                <input
-                    type="hidden"
-                    name="access_key"
-                    value="Tbf85ae27-7fdc-48fa-bdac-7b53ba458b35"
-                >
+    <!-- OBJET DU MAIL -->
+    <input
+        type="hidden"
+        name="subject"
+        value="Nouveau message depuis le portfolio de Komlan Missodey"
+    >
 
+    <!-- NOM -->
 
-                <!-- Sujet du mail -->
+    <div class="form-group">
 
-                <input
-                    type="hidden"
-                    name="subject"
-                    value="Nouveau message depuis le portfolio de Komlan Missodey"
-                >
+        <label for="name">
+            Nom
+        </label>
 
+        <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Votre nom"
+            required
+        >
 
-                <!-- Nom du site -->
-
-                <input
-                    type="hidden"
-                    name="from_name"
-                    value="Portfolio de Komlan Missodey"
-                >
-
-
-                <!-- Protection anti-bot -->
-
-                <input
-                    type="checkbox"
-                    name="botcheck"
-                    style="display:none"
-                >
+    </div>
 
 
-                <!-- NOM + EMAIL -->
+    <!-- EMAIL -->
 
-                <div class="form-row">
+    <div class="form-group">
 
-                    <div class="form-group">
+        <label for="email">
+            Email
+        </label>
 
-                        <label for="name">
-                            Nom
-                        </label>
+        <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="votre@email.com"
+            required
+        >
 
-                        <input
-                            type="text"
-                            id="name"
-                            name="name"
-                            placeholder="Votre nom"
-                            autocomplete="name"
-                            required
-                        >
-
-                    </div>
+    </div>
 
 
-                    <div class="form-group">
+    <!-- SUJET -->
 
-                        <label for="email">
-                            Email
-                        </label>
+    <div class="form-group">
 
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            placeholder="votre@email.com"
-                            autocomplete="email"
-                            required
-                        >
+        <label for="message_subject">
+            Sujet
+        </label>
 
-                    </div>
+        <input
+            type="text"
+            id="message_subject"
+            name="message_subject"
+            placeholder="Sujet de votre message"
+            required
+        >
 
-                </div>
-
-
-                <!-- SUJET -->
-
-                <div class="form-group">
-
-                    <label for="subject">
-                        Sujet
-                    </label>
-
-                    <input
-                        type="text"
-                        id="subject"
-                        name="message_subject"
-                        placeholder="Sujet de votre message"
-                        required
-                    >
-
-                </div>
+    </div>
 
 
-                <!-- MESSAGE -->
+    <!-- MESSAGE -->
 
-                <div class="form-group">
+    <div class="form-group">
 
-                    <label for="message">
-                        Message
-                    </label>
+        <label for="message">
+            Message
+        </label>
 
-                    <textarea
-                        id="message"
-                        name="message"
-                        rows="6"
-                        placeholder="Parlez-moi de votre projet..."
-                        required
-                    ></textarea>
+        <textarea
+            id="message"
+            name="message"
+            rows="6"
+            placeholder="Parlez-moi de votre projet..."
+            required
+        ></textarea>
 
-                </div>
-
-
-                <!-- BOUTON -->
-
-                <button
-                    type="submit"
-                    class="btn btn-primary"
-                    id="submitButton"
-                >
-
-                    <span>
-                        Envoyer le message
-                    </span>
-
-                    <i class="fa-solid fa-paper-plane"></i>
-
-                </button>
+    </div>
 
 
-                <!-- MESSAGE DE RETOUR -->
+    <!-- ANTI-SPAM -->
 
-                <div
-                    id="formMessage"
-                    class="form-message"
-                    role="alert"
-                ></div>
+    <input
+        type="checkbox"
+        name="botcheck"
+        style="display:none"
+    >
 
-            </form>
+
+    <!-- BOUTON -->
+
+    <button
+        type="submit"
+        class="btn btn-primary"
+        id="submitButton"
+    >
+
+        <span>
+            Envoyer le message
+        </span>
+
+        <i class="fa-solid fa-paper-plane"></i>
+
+    </button>
+
+
+    <!-- RÉSULTAT -->
+
+    <div
+        id="formMessage"
+        class="form-message"
+        role="alert"
+    ></div>
+
+</form>
 
         </div>
 

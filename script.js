@@ -267,29 +267,21 @@ revealElements.forEach(element => {
 });
 
 
-/* =====================================================
-   CONTACT FORM - WEB3FORMS
-===================================================== */
+/* ==========================================
+   FORMULAIRE DE CONTACT - WEB3FORMS
+========================================== */
 
-const contactForm =
-    document.getElementById("contactForm");
-
-const formMessage =
-    document.getElementById("formMessage");
-
-const submitButton =
-    document.getElementById("submitButton");
-
+const contactForm = document.getElementById("contactForm");
+const formMessage = document.getElementById("formMessage");
+const submitButton = document.getElementById("submitButton");
 
 if (contactForm) {
 
-    contactForm.addEventListener("submit", async function(event) {
+    contactForm.addEventListener("submit", async function (event) {
 
         event.preventDefault();
 
-
-        /* État du bouton */
-
+        // État du bouton
         submitButton.disabled = true;
 
         submitButton.innerHTML = `
@@ -297,82 +289,81 @@ if (contactForm) {
             <i class="fa-solid fa-spinner fa-spin"></i>
         `;
 
-
-        formMessage.className =
-            "form-message loading";
-
-        formMessage.textContent =
-            "Votre message est en cours d'envoi...";
-
+        formMessage.className = "form-message loading";
+        formMessage.innerHTML = "Envoi de votre message...";
 
         try {
 
-            const formData =
-                new FormData(contactForm);
+            // Récupération des données du formulaire
+            const formData = new FormData(contactForm);
 
+            // Conversion en objet JSON
+            const object = Object.fromEntries(formData);
 
-            const response =
-                await fetch(
-                    contactForm.action,
-                    {
-                        method: "POST",
-                        body: formData,
-                        headers: {
-                            "Accept": "application/json"
-                        }
-                    }
-                );
+            const json = JSON.stringify(object);
 
+            // Envoi vers Web3Forms
+            const response = await fetch(
+                "https://api.web3forms.com/submit",
+                {
+                    method: "POST",
 
-            const data =
-                await response.json();
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Accept": "application/json"
+                    },
 
+                    body: json
+                }
+            );
 
-            if (response.ok) {
+            const result = await response.json();
+
+            console.log("Réponse Web3Forms :", result);
+
+            if (response.status === 200) {
 
                 formMessage.className =
                     "form-message success";
 
                 formMessage.innerHTML = `
                     <i class="fa-solid fa-circle-check"></i>
-                    Merci ! Votre message a bien été envoyé.
-                    Je vous répondrai dans les meilleurs délais.
+                    ${result.message || "Votre message a bien été envoyé !"}
                 `;
-
 
                 contactForm.reset();
 
-
             } else {
 
-                throw new Error(
-                    data.message ||
-                    "Une erreur est survenue."
-                );
+                formMessage.className =
+                    "form-message error";
+
+                formMessage.innerHTML = `
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                    ${result.message || "Une erreur est survenue lors de l'envoi."}
+                `;
 
             }
 
-
         } catch (error) {
 
-            console.error(error);
-
+            console.error(
+                "Erreur Web3Forms :",
+                error
+            );
 
             formMessage.className =
                 "form-message error";
 
             formMessage.innerHTML = `
                 <i class="fa-solid fa-circle-exclamation"></i>
-                Impossible d'envoyer le message.
-                Veuillez réessayer ou me contacter directement
-                sur WhatsApp.
+                Une erreur de connexion est survenue.
+                Vérifiez votre connexion Internet et réessayez.
             `;
 
         }
 
-
-        /* Restaurer le bouton */
-
+        // Restaurer le bouton
         submitButton.disabled = false;
 
         submitButton.innerHTML = `
@@ -380,22 +371,9 @@ if (contactForm) {
             <i class="fa-solid fa-paper-plane"></i>
         `;
 
-
-        /* Masquer le message après 7 secondes */
-
-        setTimeout(() => {
-
-            formMessage.textContent = "";
-
-            formMessage.className =
-                "form-message";
-
-        }, 7000);
-
     });
 
 }
-
 
 /* =====================================================
    BACK TO TOP
