@@ -511,3 +511,122 @@ if (messagingButton && messagingWidget) {
     });
 
 }
+
+/* =====================================================
+   MODE SOMBRE / MODE CLAIR
+===================================================== */
+
+const themeToggle =
+    document.getElementById("themeToggle");
+
+
+if (themeToggle) {
+
+    const themeIcon =
+        themeToggle.querySelector("i");
+
+
+    /* =================================================
+       CHARGER LE THEME SAUVEGARDE
+    ================================================= */
+
+    const savedTheme =
+        localStorage.getItem("portfolio-theme");
+
+
+    if (savedTheme === "light") {
+
+        document.body.classList.add("light-mode");
+
+    }
+
+
+    /* =================================================
+       METTRE A JOUR L'ICONE
+    ================================================= */
+
+    function updateThemeIcon() {
+
+        if (
+            document.body.classList.contains(
+                "light-mode"
+            )
+        ) {
+
+            themeIcon.className =
+                "fa-solid fa-moon";
+
+            themeToggle.setAttribute(
+                "aria-label",
+                "Activer le mode sombre"
+            );
+
+            themeToggle.setAttribute(
+                "title",
+                "Mode sombre"
+            );
+
+        } else {
+
+            themeIcon.className =
+                "fa-solid fa-sun";
+
+            themeToggle.setAttribute(
+                "aria-label",
+                "Activer le mode clair"
+            );
+
+            themeToggle.setAttribute(
+                "title",
+                "Mode clair"
+            );
+
+        }
+
+    }
+
+
+    /* =================================================
+       INITIALISATION
+    ================================================= */
+
+    updateThemeIcon();
+
+
+    /* =================================================
+       CHANGEMENT DE THEME
+    ================================================= */
+
+    themeToggle.addEventListener(
+        "click",
+        function () {
+
+            document.body.classList.toggle(
+                "light-mode"
+            );
+
+
+            const isLight =
+                document.body.classList.contains(
+                    "light-mode"
+                );
+
+
+            /* Sauvegarder */
+
+            localStorage.setItem(
+                "portfolio-theme",
+                isLight
+                    ? "light"
+                    : "dark"
+            );
+
+
+            /* Actualiser l'icone */
+
+            updateThemeIcon();
+
+        }
+    );
+
+}
