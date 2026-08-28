@@ -1,632 +1,347 @@
 /* =====================================================
-   KOMLAN MISSODEY PORTFOLIO
+   KOMLAN MISSODEY — PORTFOLIO V2
+   JavaScript propre et modulaire
 ===================================================== */
 
+(() => {
+    "use strict";
 
-/* =====================================================
-   HEADER SCROLL
-===================================================== */
+    const $ = (selector, parent = document) => parent.querySelector(selector);
+    const $$ = (selector, parent = document) => [...parent.querySelectorAll(selector)];
 
-const header = document.getElementById("header");
+    const body = document.body;
+    const header = $("#header");
+    const nav = $("#mainNav");
+    const menuButton = $("#menuButton");
+    const themeToggle = $("#themeToggle");
+    const contactForm = $("#contactForm");
+    const formMessage = $("#formMessage");
+    const submitButton = $("#submitButton");
+    const backTop = $("#backTop");
+    const messagingWidget = $("#messagingWidget");
+    const messagingButton = $("#messagingButton");
+    const messagingMenu = $("#messagingMenu");
+    const chatbotButton = $("#chatbotButton");
+    const toast = $("#toast");
 
-window.addEventListener("scroll", () => {
+    /* =====================================================
+       HEADER / SCROLL
+    ===================================================== */
+    function initHeader() {
+        if (!header) return;
 
-    if (window.scrollY > 50) {
+        const updateHeader = () => {
+            header.classList.toggle("scrolled", window.scrollY > 30);
+            backTop?.classList.toggle("show", window.scrollY > 600);
+        };
 
-        header.classList.add("scrolled");
-
-    } else {
-
-        header.classList.remove("scrolled");
-
+        updateHeader();
+        window.addEventListener("scroll", updateHeader, { passive: true });
     }
 
-});
+    /* =====================================================
+       MENU MOBILE
+    ===================================================== */
+    function closeMobileMenu() {
+        nav?.classList.remove("open");
+        body.classList.remove("menu-open");
+        menuButton?.setAttribute("aria-expanded", "false");
 
-
-/* =====================================================
-   MENU MOBILE
-===================================================== */
-
-const menuButton =
-    document.getElementById("menuButton");
-
-const nav =
-    document.querySelector(".nav");
-
-
-menuButton.addEventListener("click", () => {
-
-    nav.classList.toggle("open");
-
-    const icon =
-        menuButton.querySelector("i");
-
-    if (nav.classList.contains("open")) {
-
-        icon.classList.remove("fa-bars");
-
-        icon.classList.add("fa-xmark");
-
-    } else {
-
-        icon.classList.remove("fa-xmark");
-
-        icon.classList.add("fa-bars");
-
+        const icon = menuButton?.querySelector("i");
+        icon?.classList.remove("fa-xmark");
+        icon?.classList.add("fa-bars");
     }
 
-});
+    function initMobileMenu() {
+        if (!menuButton || !nav) return;
 
+        menuButton.addEventListener("click", () => {
+            const isOpen = nav.classList.toggle("open");
+            body.classList.toggle("menu-open", isOpen);
+            menuButton.setAttribute("aria-expanded", String(isOpen));
 
-/* Fermer le menu */
-
-document.querySelectorAll(".nav-link")
-    .forEach(link => {
-
-        link.addEventListener("click", () => {
-
-            nav.classList.remove("open");
-
-            const icon =
-                menuButton.querySelector("i");
-
-            icon.classList.remove("fa-xmark");
-
-            icon.classList.add("fa-bars");
-
+            const icon = menuButton.querySelector("i");
+            icon?.classList.toggle("fa-bars", !isOpen);
+            icon?.classList.toggle("fa-xmark", isOpen);
         });
 
-    });
-
-
-/* =====================================================
-   ACTIVE NAVIGATION
-===================================================== */
-
-const sections =
-    document.querySelectorAll("section[id]");
-
-const navLinks =
-    document.querySelectorAll(".nav-link");
-
-
-window.addEventListener("scroll", () => {
-
-    let current = "";
-
-    sections.forEach(section => {
-
-        const sectionTop =
-            section.offsetTop - 150;
-
-        if (
-            window.scrollY >= sectionTop &&
-            window.scrollY <
-            sectionTop + section.offsetHeight
-        ) {
-
-            current =
-                section.getAttribute("id");
-
-        }
-
-    });
-
-
-    navLinks.forEach(link => {
-
-        link.classList.remove("active");
-
-        if (
-            link.getAttribute("href") ===
-            `#${current}`
-        ) {
-
-            link.classList.add("active");
-
-        }
-
-    });
-
-});
-
-
-/* =====================================================
-   COMPTEURS
-===================================================== */
-
-const counters =
-    document.querySelectorAll(".counter");
-
-
-let counterStarted = false;
-
-
-function startCounters() {
-
-    if (counterStarted) return;
-
-    counterStarted = true;
-
-
-    counters.forEach(counter => {
-
-        const target =
-            Number(counter.dataset.target);
-
-        let current = 0;
-
-        const increment =
-            target / 80;
-
-
-        function update() {
-
-            current += increment;
-
-            if (current < target) {
-
-                counter.textContent =
-                    Math.ceil(current);
-
-                requestAnimationFrame(update);
-
-            } else {
-
-                counter.textContent =
-                    target;
-
-            }
-
-        }
-
-
-        update();
-
-    });
-
-}
-
-
-const aboutSection =
-    document.querySelector("#apropos");
-
-
-const counterObserver =
-    new IntersectionObserver(
-        entries => {
-
-            if (entries[0].isIntersecting) {
-
-                startCounters();
-
-                counterObserver.disconnect();
-
-            }
-
-        },
-        {
-            threshold: .3
-        }
-    );
-
-
-counterObserver.observe(aboutSection);
-
-
-/* =====================================================
-   SCROLL REVEAL
-===================================================== */
-
-const revealElements =
-    document.querySelectorAll(
-        ".skill-card, .project-card, .certificate, .timeline-item, .about-card"
-    );
-
-
-const revealObserver =
-    new IntersectionObserver(
-        entries => {
-
+        $$(".nav-link").forEach(link => {
+            link.addEventListener("click", closeMobileMenu);
+        });
+
+        document.addEventListener("click", event => {
+            if (!nav.classList.contains("open")) return;
+            if (nav.contains(event.target) || menuButton.contains(event.target)) return;
+            closeMobileMenu();
+        });
+
+        window.addEventListener("resize", () => {
+            if (window.innerWidth > 780) closeMobileMenu();
+        });
+    }
+
+    /* =====================================================
+       NAVIGATION ACTIVE
+    ===================================================== */
+    function initActiveNavigation() {
+        const sections = $$("main section[id]");
+        const links = $$(".nav-link");
+        if (!sections.length || !links.length) return;
+
+        const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
-
-                if (entry.isIntersecting) {
-
-                    entry.target.style.opacity = "1";
-
-                    entry.target.style.transform =
-                        "translateY(0)";
-
-                    revealObserver
-                        .unobserve(entry.target);
-
-                }
-
+                if (!entry.isIntersecting) return;
+                links.forEach(link => {
+                    link.classList.toggle(
+                        "active",
+                        link.getAttribute("href") === `#${entry.target.id}`
+                    );
+                });
             });
+        }, { rootMargin: "-30% 0px -55% 0px", threshold: 0 });
 
-        },
-        {
-            threshold: .12
+        sections.forEach(section => observer.observe(section));
+    }
+
+    /* =====================================================
+       THÈME SOMBRE / CLAIR
+    ===================================================== */
+    function getPreferredTheme() {
+        const saved = localStorage.getItem("komlan-theme");
+        if (saved === "light" || saved === "dark") return saved;
+        return window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+    }
+
+    function applyTheme(theme) {
+        const isLight = theme === "light";
+        body.classList.toggle("light-mode", isLight);
+
+        if (themeToggle) {
+            const icon = themeToggle.querySelector("i");
+            icon?.classList.toggle("fa-sun", !isLight);
+            icon?.classList.toggle("fa-moon", isLight);
+            themeToggle.setAttribute("aria-label", isLight ? "Activer le mode sombre" : "Activer le mode clair");
+            themeToggle.setAttribute("title", isLight ? "Mode sombre" : "Mode clair");
         }
-    );
 
+        document.documentElement.style.colorScheme = isLight ? "light" : "dark";
+    }
 
-revealElements.forEach(element => {
+    function initTheme() {
+        if (!themeToggle) return;
 
-    element.style.opacity = "0";
+        applyTheme(getPreferredTheme());
 
-    element.style.transform =
-        "translateY(25px)";
+        themeToggle.addEventListener("click", () => {
+            const nextTheme = body.classList.contains("light-mode") ? "dark" : "light";
+            localStorage.setItem("komlan-theme", nextTheme);
+            applyTheme(nextTheme);
+        });
+    }
 
-    element.style.transition =
-        "opacity .7s ease, transform .7s ease";
+    /* =====================================================
+       COMPTEURS
+    ===================================================== */
+    function initCounters() {
+        const counters = $$(".counter");
+        if (!counters.length) return;
 
-    revealObserver.observe(element);
+        const animateCounter = counter => {
+            const target = Number(counter.dataset.target || 0);
+            const duration = 1300;
+            const start = performance.now();
 
-});
+            const update = now => {
+                const progress = Math.min((now - start) / duration, 1);
+                const eased = 1 - Math.pow(1 - progress, 3);
+                counter.textContent = String(Math.round(target * eased));
+                if (progress < 1) requestAnimationFrame(update);
+            };
 
+            requestAnimationFrame(update);
+        };
 
-/* ==========================================
-   FORMULAIRE DE CONTACT - WEB3FORMS
-========================================== */
+        const observer = new IntersectionObserver(entries => {
+            if (!entries.some(entry => entry.isIntersecting)) return;
+            counters.forEach(animateCounter);
+            observer.disconnect();
+        }, { threshold: 0.25 });
 
-const contactForm = document.getElementById("contactForm");
-const formMessage = document.getElementById("formMessage");
-const submitButton = document.getElementById("submitButton");
+        const section = $("#apropos");
+        if (section) observer.observe(section);
+    }
 
-if (contactForm) {
+    /* =====================================================
+       SCROLL REVEAL
+    ===================================================== */
+    function initReveal() {
+        const elements = $$(".skill-card, .project-card, .certificate, .timeline-item, .about-card, .contact-box");
+        if (!elements.length || !("IntersectionObserver" in window)) return;
 
-    contactForm.addEventListener("submit", async function (event) {
+        elements.forEach(element => element.classList.add("reveal-ready"));
 
-        event.preventDefault();
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add("is-visible");
+                observer.unobserve(entry.target);
+            });
+        }, { threshold: 0.12 });
 
-        // État du bouton
-        submitButton.disabled = true;
+        elements.forEach(element => observer.observe(element));
+    }
 
-        submitButton.innerHTML = `
-            <span>Envoi en cours...</span>
-            <i class="fa-solid fa-spinner fa-spin"></i>
-        `;
+    /* =====================================================
+       FORMULAIRE WEB3FORMS
+    ===================================================== */
+    function setFormMessage(type, message) {
+        if (!formMessage) return;
+        formMessage.className = `form-message ${type}`;
+        formMessage.textContent = message;
+    }
 
-        formMessage.className = "form-message loading";
-        formMessage.innerHTML = "Envoi de votre message...";
+    function initContactForm() {
+        if (!contactForm || !submitButton) return;
 
-        try {
+        const startedAt = Date.now();
 
-            // Récupération des données du formulaire
-            const formData = new FormData(contactForm);
+        contactForm.addEventListener("submit", async event => {
+            event.preventDefault();
 
-            // Conversion en objet JSON
-            const object = Object.fromEntries(formData);
+            if (!contactForm.checkValidity()) {
+                contactForm.reportValidity();
+                return;
+            }
 
-            const json = JSON.stringify(object);
+            const honeypot = $("[name='botcheck']", contactForm);
+            if (honeypot?.checked) return;
 
-            // Envoi vers Web3Forms
-            const response = await fetch(
-                "https://api.web3forms.com/submit",
-                {
+            // Bloque les soumissions automatisées trop rapides.
+            if (Date.now() - startedAt < 2500) {
+                setFormMessage("error", "Veuillez patienter quelques secondes avant d'envoyer votre message.");
+                return;
+            }
+
+            const originalButton = submitButton.innerHTML;
+            submitButton.disabled = true;
+            submitButton.innerHTML = `<span>Envoi en cours...</span><i class="fa-solid fa-spinner fa-spin" aria-hidden="true"></i>`;
+            setFormMessage("loading", "Envoi de votre message...");
+
+            try {
+                const formData = new FormData(contactForm);
+                const response = await fetch("https://api.web3forms.com/submit", {
                     method: "POST",
-
                     headers: {
                         "Content-Type": "application/json",
                         "Accept": "application/json"
                     },
+                    body: JSON.stringify(Object.fromEntries(formData.entries()))
+                });
 
-                    body: json
+                const result = await response.json().catch(() => ({}));
+
+                if (!response.ok || result.success === false) {
+                    throw new Error(result.message || "L'envoi du message a échoué.");
                 }
-            );
 
-            const result = await response.json();
-
-            console.log("Réponse Web3Forms :", result);
-
-            if (response.status === 200) {
-
-                formMessage.className =
-                    "form-message success";
-
-                formMessage.innerHTML = `
-                    <i class="fa-solid fa-circle-check"></i>
-                    ${result.message || "Votre message a bien été envoyé !"}
-                `;
-
+                setFormMessage("success", result.message || "Votre message a bien été envoyé. Merci !");
                 contactForm.reset();
-
-            } else {
-
-                formMessage.className =
-                    "form-message error";
-
-                formMessage.innerHTML = `
-                    <i class="fa-solid fa-circle-exclamation"></i>
-                    ${result.message || "Une erreur est survenue lors de l'envoi."}
-                `;
-
+            } catch (error) {
+                console.error("Web3Forms:", error);
+                setFormMessage("error", "Impossible d'envoyer le message pour le moment. Vous pouvez me contacter directement sur WhatsApp ou Signal.");
+            } finally {
+                submitButton.disabled = false;
+                submitButton.innerHTML = originalButton;
             }
-
-        } catch (error) {
-
-            console.error(
-                "Erreur Web3Forms :",
-                error
-            );
-
-            formMessage.className =
-                "form-message error";
-
-            formMessage.innerHTML = `
-                <i class="fa-solid fa-circle-exclamation"></i>
-                Une erreur de connexion est survenue.
-                Vérifiez votre connexion Internet et réessayez.
-            `;
-
-        }
-
-        // Restaurer le bouton
-        submitButton.disabled = false;
-
-        submitButton.innerHTML = `
-            <span>Envoyer le message</span>
-            <i class="fa-solid fa-paper-plane"></i>
-        `;
-
-    });
-
-}
-
-/* =====================================================
-   BACK TO TOP
-===================================================== */
-
-const backTop =
-    document.getElementById("backTop");
-
-
-window.addEventListener("scroll", () => {
-
-    if (window.scrollY > 600) {
-
-        backTop.classList.add("show");
-
-    } else {
-
-        backTop.classList.remove("show");
-
+        });
     }
-
-});
-
-
-backTop.addEventListener("click", () => {
-
-    window.scrollTo({
-
-        top: 0,
-
-        behavior: "smooth"
-
-    });
-
-});
-
-
-/* =====================================================
-   ANNÉE AUTOMATIQUE
-===================================================== */
-
-document.getElementById("year").textContent =
-    new Date().getFullYear();
 
     /* =====================================================
-   MESSAGERIE FLOTTANTE
-===================================================== */
-
-const messagingWidget =
-    document.getElementById("messagingWidget");
-
-const messagingButton =
-    document.getElementById("messagingButton");
-
-
-if (messagingButton && messagingWidget) {
-
-    messagingButton.addEventListener("click", () => {
-
-        messagingWidget.classList.toggle("open");
-
-
-        const isOpen =
-            messagingWidget.classList.contains("open");
-
-
-        messagingButton.setAttribute(
-            "aria-expanded",
-            isOpen
-        );
-
-
-        const icon =
-            messagingButton.querySelector("i");
-
-
-        if (isOpen) {
-
-            icon.classList.remove(
-                "fa-comments"
-            );
-
-            icon.classList.add(
-                "fa-xmark"
-            );
-
-        } else {
-
-            icon.classList.remove(
-                "fa-xmark"
-            );
-
-            icon.classList.add(
-                "fa-comments"
-            );
-
-        }
-
-    });
-
-
-    /* Fermer si on clique ailleurs */
-
-    document.addEventListener("click", event => {
-
-        if (
-            !messagingWidget.contains(event.target)
-        ) {
-
-            messagingWidget.classList.remove(
-                "open"
-            );
-
-
-            messagingButton.setAttribute(
-                "aria-expanded",
-                "false"
-            );
-
-
-            const icon =
-                messagingButton.querySelector("i");
-
-
-            icon.classList.remove(
-                "fa-xmark"
-            );
-
-            icon.classList.add(
-                "fa-comments"
-            );
-
-        }
-
-    });
-
-}
-
-/* =====================================================
-   MODE SOMBRE / MODE CLAIR
-===================================================== */
-
-const themeToggle =
-    document.getElementById("themeToggle");
-
-
-if (themeToggle) {
-
-    const themeIcon =
-        themeToggle.querySelector("i");
-
-
-    /* =================================================
-       CHARGER LE THEME SAUVEGARDE
-    ================================================= */
-
-    const savedTheme =
-        localStorage.getItem("portfolio-theme");
-
-
-    if (savedTheme === "light") {
-
-        document.body.classList.add("light-mode");
-
+       MESSAGERIE FLOTTANTE
+    ===================================================== */
+    function closeMessaging() {
+        messagingWidget?.classList.remove("open");
+        messagingButton?.classList.remove("is-open");
+        messagingButton?.setAttribute("aria-expanded", "false");
+        messagingMenu?.setAttribute("aria-hidden", "true");
     }
 
+    function initMessaging() {
+        if (!messagingWidget || !messagingButton || !messagingMenu) return;
 
-    /* =================================================
-       METTRE A JOUR L'ICONE
-    ================================================= */
+        messagingButton.addEventListener("click", event => {
+            event.stopPropagation();
+            const isOpen = messagingWidget.classList.toggle("open");
+            messagingButton.classList.toggle("is-open", isOpen);
+            messagingButton.setAttribute("aria-expanded", String(isOpen));
+            messagingMenu.setAttribute("aria-hidden", String(!isOpen));
+        });
 
-    function updateThemeIcon() {
+        messagingMenu.addEventListener("click", event => event.stopPropagation());
+        document.addEventListener("click", closeMessaging);
 
-        if (
-            document.body.classList.contains(
-                "light-mode"
-            )
-        ) {
-
-            themeIcon.className =
-                "fa-solid fa-moon";
-
-            themeToggle.setAttribute(
-                "aria-label",
-                "Activer le mode sombre"
-            );
-
-            themeToggle.setAttribute(
-                "title",
-                "Mode sombre"
-            );
-
-        } else {
-
-            themeIcon.className =
-                "fa-solid fa-sun";
-
-            themeToggle.setAttribute(
-                "aria-label",
-                "Activer le mode clair"
-            );
-
-            themeToggle.setAttribute(
-                "title",
-                "Mode clair"
-            );
-
-        }
-
+        document.addEventListener("keydown", event => {
+            if (event.key === "Escape") closeMessaging();
+        });
     }
 
+    /* =====================================================
+       CHATBOT — PRÊT À CONNECTER
+    ===================================================== */
+    function showToast(message) {
+        if (!toast) return;
+        toast.textContent = message;
+        toast.classList.add("show");
+        clearTimeout(showToast.timeout);
+        showToast.timeout = setTimeout(() => toast.classList.remove("show"), 4500);
+    }
 
-    /* =================================================
-       INITIALISATION
-    ================================================= */
+    function initChatbot() {
+        if (!chatbotButton) return;
 
-    updateThemeIcon();
+        chatbotButton.addEventListener("click", () => {
+            // Remplace cette URL par celle de ton chatbot lorsqu'il sera prêt.
+            const chatbotUrl = "";
 
+            if (chatbotUrl) {
+                window.open(chatbotUrl, "_blank", "noopener,noreferrer");
+                return;
+            }
 
-    /* =================================================
-       CHANGEMENT DE THEME
-    ================================================= */
+            showToast("L'Assistant IA est prêt à être connecté. Il suffit d'ajouter son URL dans script.js.");
+        });
+    }
 
-    themeToggle.addEventListener(
-        "click",
-        function () {
+    /* =====================================================
+       BACK TO TOP
+    ===================================================== */
+    function initBackTop() {
+        if (!backTop) return;
+        backTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+    }
 
-            document.body.classList.toggle(
-                "light-mode"
-            );
+    /* =====================================================
+       ANNÉE FOOTER
+    ===================================================== */
+    function initYear() {
+        const year = $("#year");
+        if (year) year.textContent = String(new Date().getFullYear());
+    }
 
-
-            const isLight =
-                document.body.classList.contains(
-                    "light-mode"
-                );
-
-
-            /* Sauvegarder */
-
-            localStorage.setItem(
-                "portfolio-theme",
-                isLight
-                    ? "light"
-                    : "dark"
-            );
-
-
-            /* Actualiser l'icone */
-
-            updateThemeIcon();
-
-        }
-    );
-
-}
+    /* =====================================================
+       INIT
+    ===================================================== */
+    document.addEventListener("DOMContentLoaded", () => {
+        initHeader();
+        initMobileMenu();
+        initActiveNavigation();
+        initTheme();
+        initCounters();
+        initReveal();
+        initContactForm();
+        initMessaging();
+        initChatbot();
+        initBackTop();
+        initYear();
+    });
+})();
