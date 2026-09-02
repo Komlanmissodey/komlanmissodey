@@ -360,3 +360,108 @@ footer { padding-top: 40px; background: var(--surface); border-top: 1px solid va
     html { scroll-behavior: auto; }
     *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
+
+/* =========================================================
+   POSITIONNEMENT DES BOUTONS FLOTTANTS
+   ========================================================= */
+
+/* Bouton de messagerie personnalisé */
+.messaging-widget {
+    position: fixed !important;
+    right: 25px !important;
+    bottom: 150px !important;
+    z-index: 9999 !important;
+}
+
+/* Bouton principal de messagerie */
+.messaging-button {
+    width: 58px !important;
+    height: 58px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    position: relative !important;
+    z-index: 10000 !important;
+}
+
+/* Menu WhatsApp / Signal / Calendly */
+.messaging-menu {
+    position: absolute !important;
+    right: 0 !important;
+    bottom: 70px !important;
+    z-index: 10001 !important;
+}
+
+/* =========================================================
+   BOUTON FASTBOTS
+   ========================================================= */
+
+/*
+   FastBots injecte son propre bouton.
+   Ces règles permettent de lui laisser de la place.
+*/
+
+/* Si FastBots utilise un bouton fixe en bas à droite */
+#fastbots-widget,
+.fastbots-widget,
+.fastbots-chat-widget {
+    z-index: 9000 !important;
+}
+
+/* =========================================================
+   RETOUR EN HAUT
+   ========================================================= */
+
+#backToTop {
+    position: fixed !important;
+    left: 25px !important;
+    bottom: 25px !important;
+    z-index: 9998 !important;
+}
+
+/* =========================================================
+   VERSION MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .messaging-widget {
+        right: 18px !important;
+        bottom: 135px !important;
+    }
+
+    .messaging-button {
+        width: 52px !important;
+        height: 52px !important;
+    }
+
+    .messaging-menu {
+        bottom: 62px !important;
+    }
+
+    #backToTop {
+        left: 18px !important;
+        bottom: 20px !important;
+    }
+}
+
+/* Très petits écrans */
+@media (max-width: 480px) {
+
+    .messaging-widget {
+        right: 15px !important;
+        bottom: 125px !important;
+    }
+
+    .messaging-button {
+        width: 50px !important;
+        height: 50px !important;
+    }
+
+    #backToTop {
+        left: 15px !important;
+        bottom: 15px !important;
+    }
+}
