@@ -1,457 +1,1938 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+
+    <!-- =====================================================
+         MÉTADONNÉES
+    ====================================================== -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Mode sombre privilégié -->
     <meta name="theme-color" content="#020817">
     <meta name="color-scheme" content="dark light">
 
     <title>Komlan Missodey | Designer Web & Référent Digital</title>
-    <meta name="description" content="Portfolio de Komlan Missodey — Designer Web, Référent Digital, Community Manager et Formateur à Lomé, Togo.">
-    <meta name="author" content="Komlan Missodey">
-    <meta name="robots" content="index, follow">
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="Komlan Missodey | Designer Web & Référent Digital">
-    <meta property="og:description" content="Découvrez le parcours, les compétences, les réalisations et les certifications de Komlan Missodey.">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="./asset/photo-profil.png">
+    <meta
+        name="description"
+        content="Portfolio de Komlan Missodey — Designer Web, Référent Digital, Community Manager et Formateur à Lomé, Togo."
+    >
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="./asset/logo-KM-transparent.png">
+    <meta
+        name="author"
+        content="Komlan Missodey"
+    >
 
-    <!-- Fonts -->
+    <meta
+        name="robots"
+        content="index, follow"
+    >
+
+    <!-- =====================================================
+         OPEN GRAPH
+    ====================================================== -->
+    <meta
+        property="og:title"
+        content="Komlan Missodey | Designer Web & Référent Digital"
+    >
+
+    <meta
+        property="og:description"
+        content="Découvrez le parcours, les compétences, les réalisations et les certifications de Komlan Missodey."
+    >
+
+    <meta
+        property="og:type"
+        content="website"
+    >
+
+    <meta
+        property="og:image"
+        content="./asset/photo-profil.png"
+    >
+
+    <!-- =====================================================
+         FAVICON
+    ====================================================== -->
+    <link
+        rel="icon"
+        type="image/png"
+        href="./asset/logo-KM-transparent.png"
+    >
+
+    <!-- =====================================================
+         FONTS
+    ====================================================== -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
 
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="./style.css">
-    <script src="./script.js" defer></script>
+    <!-- =====================================================
+         FONT AWESOME
+    ====================================================== -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <!-- =====================================================
+         CSS
+    ====================================================== -->
+    <link
+        rel="stylesheet"
+        href="./style.css"
+    >
+
+    <!-- =====================================================
+         JAVASCRIPT DU PORTFOLIO
+    ====================================================== -->
+    <script
+        src="./script.js"
+        defer
+    ></script>
+
+    <!-- =====================================================
+         FASTBOTS — KM ASSISTANT
+    ====================================================== -->
+    <script
+        defer
+        src="https://app.fastbots.ai/embed.js"
+        data-bot-id="cmte5ibgl0723p21p78paxqk3"
+    ></script>
+
 </head>
+
 
 <body>
 
 <!-- =====================================================
      HEADER
 ===================================================== -->
-<header class="header" id="header">
+<header
+    class="header"
+    id="header"
+>
+
     <div class="container navbar">
-        <a href="#accueil" class="brand" aria-label="Retour à l'accueil">
-            <img src="./asset/logo-KM-transparent.png" alt="Logo Komlan Missodey">
+
+        <!-- LOGO -->
+        <a
+            href="#accueil"
+            class="brand"
+            aria-label="Retour à l'accueil"
+        >
+            <img
+                src="./asset/logo-KM-transparent.png"
+                alt="Logo Komlan Missodey"
+            >
         </a>
 
-        <nav class="nav" id="mainNav" aria-label="Navigation principale">
-            <a href="#accueil" class="nav-link active">Accueil</a>
-            <a href="#apropos" class="nav-link">À propos</a>
-            <a href="#competences" class="nav-link">Compétences</a>
-            <a href="#realisations" class="nav-link">Réalisations</a>
-            <a href="#certificats" class="nav-link">Certificats</a>
-            <a href="#contact" class="nav-link">Contact</a>
-        </nav>
 
-        <div class="header-actions">
-            <button type="button" id="themeToggle" class="theme-toggle" aria-label="Activer le mode clair" title="Changer de thème">
-                <i class="fa-solid fa-sun" aria-hidden="true"></i>
-            </button>
+        <!-- NAVIGATION -->
+        <nav
+            class="nav"
+            id="mainNav"
+            aria-label="Navigation principale"
+        >
 
-            <a href="#contact" class="header-button">
-                Me contacter
-                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            <a
+                href="#accueil"
+                class="nav-link active"
+            >
+                Accueil
             </a>
 
-            <button type="button" class="menu-button" id="menuButton" aria-label="Ouvrir le menu" aria-controls="mainNav" aria-expanded="false">
-                <i class="fa-solid fa-bars" aria-hidden="true"></i>
+            <a
+                href="#apropos"
+                class="nav-link"
+            >
+                À propos
+            </a>
+
+            <a
+                href="#competences"
+                class="nav-link"
+            >
+                Compétences
+            </a>
+
+            <a
+                href="#realisations"
+                class="nav-link"
+            >
+                Réalisations
+            </a>
+
+            <a
+                href="#experience"
+                class="nav-link"
+            >
+                Parcours
+            </a>
+
+            <a
+                href="#certificats"
+                class="nav-link"
+            >
+                Certificats
+            </a>
+
+            <a
+                href="#contact"
+                class="nav-link"
+            >
+                Contact
+            </a>
+
+        </nav>
+
+
+        <!-- ACTIONS HEADER -->
+        <div class="header-actions">
+
+            <!-- MODE CLAIR / SOMBRE -->
+            <button
+                type="button"
+                id="themeToggle"
+                class="theme-toggle"
+                aria-label="Activer le mode clair"
+                title="Activer le mode clair"
+                aria-pressed="false"
+            >
+                <i
+                    id="themeIcon"
+                    class="fa-solid fa-sun"
+                    aria-hidden="true"
+                ></i>
             </button>
+
+
+            <!-- CONTACT -->
+            <a
+                href="#contact"
+                class="header-button"
+            >
+                Me contacter
+
+                <i
+                    class="fa-solid fa-arrow-right"
+                    aria-hidden="true"
+                ></i>
+            </a>
+
+
+            <!-- MENU MOBILE -->
+            <button
+                type="button"
+                class="menu-button"
+                id="menuButton"
+                aria-label="Ouvrir le menu"
+                aria-controls="mainNav"
+                aria-expanded="false"
+            >
+                <i
+                    class="fa-solid fa-bars"
+                    aria-hidden="true"
+                ></i>
+            </button>
+
         </div>
+
     </div>
+
 </header>
 
+
+<!-- =====================================================
+     CONTENU PRINCIPAL
+===================================================== -->
 <main>
+
 
 <!-- =====================================================
      HERO
 ===================================================== -->
-<section class="hero" id="accueil">
-    <div class="hero-background" aria-hidden="true"></div>
-    <div class="hero-grid" aria-hidden="true"></div>
+<section
+    class="hero"
+    id="accueil"
+>
+
+    <div
+        class="hero-background"
+        aria-hidden="true"
+    ></div>
+
+    <div
+        class="hero-grid"
+        aria-hidden="true"
+    ></div>
+
 
     <div class="container hero-container">
+
+        <!-- CONTENU HERO -->
         <div class="hero-content">
+
             <div class="availability">
-                <span aria-hidden="true"></span>
+
+                <span
+                    aria-hidden="true"
+                ></span>
+
                 Disponible pour de nouvelles opportunités
+
             </div>
 
-            <p class="hero-intro">Bonjour, je suis</p>
 
-            <h1>
-                Komlan
-                <span class="gradient-text">MISSODEY</span>
-            </h1>
-
-            <h2>
-                Designer Web <span>|</span> Référent Digital <span>|</span> Formateur
-            </h2>
-
-            <p class="hero-description">
-                J'accompagne les organisations et les individus dans leur transformation numérique grâce à des solutions créatives, innovantes et à fort impact.
+            <p class="hero-intro">
+                Bonjour, je suis
             </p>
 
+
+            <h1>
+
+                Komlan
+
+                <span class="gradient-text">
+                    MISSODEY
+                </span>
+
+            </h1>
+
+
+            <h2>
+                Designer Web
+                <span>|</span>
+                Référent Digital
+                <span>|</span>
+                Formateur
+            </h2>
+
+
+            <p class="hero-description">
+
+                J'accompagne les organisations et les individus
+                dans leur transformation numérique grâce à des
+                solutions créatives, innovantes et à fort impact.
+
+            </p>
+
+
+            <!-- BOUTONS -->
             <div class="hero-buttons">
-                <a href="#realisations" class="btn btn-primary">
+
+                <a
+                    href="#realisations"
+                    class="btn btn-primary"
+                >
                     Découvrir mon travail
-                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+
+                    <i
+                        class="fa-solid fa-arrow-right"
+                        aria-hidden="true"
+                    ></i>
                 </a>
-                <a href="./asset/cv.pdf" download class="btn btn-outline">
+
+
+                <a
+                    href="./asset/cv.pdf"
+                    download
+                    class="btn btn-outline"
+                >
                     Télécharger mon CV
-                    <i class="fa-solid fa-download" aria-hidden="true"></i>
+
+                    <i
+                        class="fa-solid fa-download"
+                        aria-hidden="true"
+                    ></i>
                 </a>
+
             </div>
 
-            <div class="socials" aria-label="Réseaux sociaux">
-                <span>Retrouvez-moi sur</span>
-                <a href="https://www.linkedin.com/in/komlanmissodey/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                    <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+
+            <!-- RÉSEAUX SOCIAUX -->
+            <div
+                class="socials"
+                aria-label="Réseaux sociaux"
+            >
+
+                <span>
+                    Retrouvez-moi sur
+                </span>
+
+
+                <a
+                    href="https://www.linkedin.com/in/komlanmissodey/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="LinkedIn"
+                >
+                    <i
+                        class="fa-brands fa-linkedin-in"
+                        aria-hidden="true"
+                    ></i>
                 </a>
-                <a href="https://www.facebook.com/referentkomlanmissodey" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                    <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+
+
+                <a
+                    href="https://www.facebook.com/referentkomlanmissodey"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Facebook"
+                >
+                    <i
+                        class="fa-brands fa-facebook-f"
+                        aria-hidden="true"
+                    ></i>
                 </a>
-                <a href="https://www.instagram.com/komlanmissodey/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                    <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+
+
+                <a
+                    href="https://www.instagram.com/komlanmissodey/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Instagram"
+                >
+                    <i
+                        class="fa-brands fa-instagram"
+                        aria-hidden="true"
+                    ></i>
                 </a>
-                <a href="https://github.com/Komlanmissodey" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                    <i class="fa-brands fa-github" aria-hidden="true"></i>
+
+
+                <a
+                    href="https://github.com/Komlanmissodey"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="GitHub"
+                >
+                    <i
+                        class="fa-brands fa-github"
+                        aria-hidden="true"
+                    ></i>
                 </a>
+
             </div>
+
         </div>
 
-        <div class="hero-visual" aria-hidden="true">
+
+        <!-- VISUEL HERO -->
+        <div
+            class="hero-visual"
+            aria-hidden="true"
+        >
+
             <div class="logo-stage">
+
                 <div class="logo-glow"></div>
-                <img src="./asset/logo-KM-transparent.png" alt="" class="hero-logo">
-                <div class="stage"><div class="stage-light"></div></div>
+
+
+                <img
+                    src="./asset/logo-KM-transparent.png"
+                    alt=""
+                    class="hero-logo"
+                >
+
+
+                <div class="stage">
+
+                    <div class="stage-light"></div>
+
+                </div>
+
             </div>
+
         </div>
+
     </div>
 
-    <a href="#apropos" class="hero-scroll" aria-label="Faire défiler vers la section À propos">
+
+    <!-- SCROLL -->
+    <a
+        href="#apropos"
+        class="hero-scroll"
+        aria-label="Faire défiler vers la section À propos"
+    >
+
         <span></span>
+
         Faites défiler
+
     </a>
+
 </section>
+
+
 
 <!-- =====================================================
      À PROPOS
 ===================================================== -->
-<section class="about section" id="apropos">
+<section
+    class="about section"
+    id="apropos"
+>
+
     <div class="container">
+
         <div class="section-header">
-            <span class="section-label">À PROPOS DE MOI</span>
-            <h2>Passionné par le digital, <span>engagé pour l'impact.</span></h2>
+
+            <span class="section-label">
+                À PROPOS DE MOI
+            </span>
+
+            <h2>
+                Passionné par le digital,
+                <span>
+                    engagé pour l'impact.
+                </span>
+            </h2>
+
         </div>
+
 
         <div class="about-card">
+
+
+            <!-- PHOTO -->
             <div class="about-photo">
+
                 <div class="photo-frame">
-                    <img src="./asset/photo-profil.png" alt="Portrait de Komlan Missodey" loading="lazy">
+
+                    <img
+                        src="./asset/photo-profil.png"
+                        alt="Portrait de Komlan Missodey"
+                        loading="lazy"
+                    >
+
                 </div>
-                <div class="photo-decoration decoration-one" aria-hidden="true"></div>
-                <div class="photo-decoration decoration-two" aria-hidden="true"></div>
+
+
+                <div
+                    class="photo-decoration decoration-one"
+                    aria-hidden="true"
+                ></div>
+
+                <div
+                    class="photo-decoration decoration-two"
+                    aria-hidden="true"
+                ></div>
+
             </div>
 
+
+            <!-- TEXTE -->
             <div class="about-content">
-                <p>Je suis un professionnel du numérique basé à Lomé, au Togo. Mon parcours se situe à la croisée du <strong>design, de la technologie, de la communication et de la formation.</strong></p>
-                <p>Mon expérience m'a permis de développer une approche polyvalente qui me permet de concevoir des solutions digitales, accompagner des apprenants, gérer des communautés et participer au développement de projets innovants.</p>
-                <p>Je crois que la technologie doit avant tout répondre à un problème réel et produire un impact mesurable.</p>
-                <a href="#contact" class="btn btn-outline">En savoir plus <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+
+                <p>
+
+                    Je suis un professionnel du numérique
+                    basé à Lomé, au Togo. Mon parcours se situe
+                    à la croisée du
+                    <strong>
+                        design, de la technologie,
+                        de la communication et de la formation.
+                    </strong>
+
+                </p>
+
+
+                <p>
+
+                    Mon expérience m'a permis de développer
+                    une approche polyvalente qui me permet
+                    de concevoir des solutions digitales,
+                    accompagner des apprenants, gérer des
+                    communautés et participer au développement
+                    de projets innovants.
+
+                </p>
+
+
+                <p>
+
+                    Je crois que la technologie doit avant
+                    tout répondre à un problème réel et
+                    produire un impact mesurable.
+
+                </p>
+
+
+                <a
+                    href="#contact"
+                    class="btn btn-outline"
+                >
+
+                    En savoir plus
+
+                    <i
+                        class="fa-solid fa-arrow-right"
+                        aria-hidden="true"
+                    ></i>
+
+                </a>
+
             </div>
 
+
+            <!-- STATISTIQUES -->
             <div class="about-stats">
-                <div class="stat"><strong><span class="counter" data-target="500">0</span>+</strong><p>Inscrits formés</p></div>
-                <div class="stat"><strong><span class="counter" data-target="20">0</span>%</strong><p>Croissance des abonnés</p></div>
-                <div class="stat"><strong><span class="counter" data-target="80">0</span>%</strong><p>Amélioration du niveau des apprenants</p></div>
-                <div class="stat"><strong>5+</strong><p>Années d'expérience</p></div>
+
+                <div class="stat">
+
+                    <strong>
+                        <span
+                            class="counter"
+                            data-counter="500"
+                        >
+                            0
+                        </span>+
+                    </strong>
+
+                    <p>
+                        Inscrits formés
+                    </p>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <strong>
+                        <span
+                            class="counter"
+                            data-counter="20"
+                        >
+                            0
+                        </span>%
+                    </strong>
+
+                    <p>
+                        Croissance des abonnés
+                    </p>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <strong>
+                        <span
+                            class="counter"
+                            data-counter="80"
+                        >
+                            0
+                        </span>%
+                    </strong>
+
+                    <p>
+                        Amélioration du niveau des apprenants
+                    </p>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <strong>
+                        5+
+                    </strong>
+
+                    <p>
+                        Années d'expérience
+                    </p>
+
+                </div>
+
             </div>
+
         </div>
+
     </div>
+
 </section>
+
+
 
 <!-- =====================================================
      COMPÉTENCES
 ===================================================== -->
-<section class="skills section" id="competences">
+<section
+    class="skills section"
+    id="competences"
+>
+
     <div class="container">
+
         <div class="section-header">
-            <span class="section-label">MES COMPÉTENCES</span>
-            <h2>Des compétences au service de <span>vos projets.</span></h2>
+
+            <span class="section-label">
+                MES COMPÉTENCES
+            </span>
+
+            <h2>
+                Des compétences au service de
+                <span>
+                    vos projets.
+                </span>
+            </h2>
+
         </div>
+
 
         <div class="skills-grid">
-            <article class="skill-card">
-                <div class="skill-icon"><i class="fa-solid fa-code" aria-hidden="true"></i></div>
-                <h3>Développement Web</h3>
-                <p>Création de sites web et applications modernes, responsives et performantes.</p>
-                <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>WordPress</span></div>
-            </article>
+
 
             <article class="skill-card">
-                <div class="skill-icon"><i class="fa-solid fa-pen-ruler" aria-hidden="true"></i></div>
-                <h3>UI / UX Design</h3>
-                <p>Conception d'interfaces intuitives, accessibles et centrées utilisateur.</p>
-                <div class="tags"><span>UI Design</span><span>UX</span><span>Prototype</span></div>
+
+                <div class="skill-icon">
+                    <i
+                        class="fa-solid fa-code"
+                        aria-hidden="true"
+                    ></i>
+                </div>
+
+                <h3>
+                    Développement Web
+                </h3>
+
+                <p>
+                    Création de sites web et applications
+                    modernes, responsives et performantes.
+                </p>
+
+                <div class="tags">
+
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+                    <span>WordPress</span>
+
+                </div>
+
             </article>
 
-            <article class="skill-card">
-                <div class="skill-icon"><i class="fa-solid fa-bullhorn" aria-hidden="true"></i></div>
-                <h3>Community Management</h3>
-                <p>Stratégie éditoriale, création de contenu et animation des communautés digitales.</p>
-                <div class="tags"><span>Social Media</span><span>Content</span><span>Marketing</span></div>
-            </article>
+
 
             <article class="skill-card">
-                <div class="skill-icon"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i></div>
-                <h3>Formation & Pédagogie</h3>
-                <p>Conception de modules, transmission des compétences et accompagnement des apprenants.</p>
-                <div class="tags"><span>Formation</span><span>Mentorat</span><span>Pédagogie</span></div>
+
+                <div class="skill-icon">
+                    <i
+                        class="fa-solid fa-pen-ruler"
+                        aria-hidden="true"
+                    ></i>
+                </div>
+
+                <h3>
+                    UI / UX Design
+                </h3>
+
+                <p>
+                    Conception d'interfaces intuitives,
+                    accessibles et centrées utilisateur.
+                </p>
+
+                <div class="tags">
+
+                    <span>UI Design</span>
+                    <span>UX</span>
+                    <span>Prototype</span>
+
+                </div>
+
             </article>
 
-            <article class="skill-card">
-                <div class="skill-icon"><i class="fa-solid fa-solar-panel" aria-hidden="true"></i></div>
-                <h3>Énergie solaire</h3>
-                <p>Installation, maintenance et solutions énergétiques adaptées aux besoins locaux.</p>
-                <div class="tags"><span>Solaire</span><span>Installation</span><span>Maintenance</span></div>
-            </article>
+
 
             <article class="skill-card">
-                <div class="skill-icon"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i></div>
-                <h3>Gestion de projet</h3>
-                <p>Organisation, coordination, suivi des équipes et pilotage d'initiatives numériques.</p>
-                <div class="tags"><span>Coordination</span><span>Agile</span><span>Suivi</span></div>
+
+                <div class="skill-icon">
+                    <i
+                        class="fa-solid fa-bullhorn"
+                        aria-hidden="true"
+                    ></i>
+                </div>
+
+                <h3>
+                    Community Management
+                </h3>
+
+                <p>
+                    Stratégie éditoriale, création de contenu
+                    et animation des communautés digitales.
+                </p>
+
+                <div class="tags">
+
+                    <span>Social Media</span>
+                    <span>Content</span>
+                    <span>Marketing</span>
+
+                </div>
+
             </article>
+
+
+
+            <article class="skill-card">
+
+                <div class="skill-icon">
+                    <i
+                        class="fa-solid fa-graduation-cap"
+                        aria-hidden="true"
+                    ></i>
+                </div>
+
+                <h3>
+                    Formation & Pédagogie
+                </h3>
+
+                <p>
+                    Conception de modules, transmission des
+                    compétences et accompagnement des apprenants.
+                </p>
+
+                <div class="tags">
+
+                    <span>Formation</span>
+                    <span>Mentorat</span>
+                    <span>Pédagogie</span>
+
+                </div>
+
+            </article>
+
+
+
+            <article class="skill-card">
+
+                <div class="skill-icon">
+                    <i
+                        class="fa-solid fa-solar-panel"
+                        aria-hidden="true"
+                    ></i>
+                </div>
+
+                <h3>
+                    Énergie solaire
+                </h3>
+
+                <p>
+                    Installation, maintenance et solutions
+                    énergétiques adaptées aux besoins locaux.
+                </p>
+
+                <div class="tags">
+
+                    <span>Solaire</span>
+                    <span>Installation</span>
+                    <span>Maintenance</span>
+
+                </div>
+
+            </article>
+
+
+
+            <article class="skill-card">
+
+                <div class="skill-icon">
+                    <i
+                        class="fa-solid fa-diagram-project"
+                        aria-hidden="true"
+                    ></i>
+                </div>
+
+                <h3>
+                    Gestion de projet
+                </h3>
+
+                <p>
+                    Organisation, coordination, suivi des
+                    équipes et pilotage d'initiatives numériques.
+                </p>
+
+                <div class="tags">
+
+                    <span>Coordination</span>
+                    <span>Agile</span>
+                    <span>Suivi</span>
+
+                </div>
+
+            </article>
+
         </div>
+
     </div>
+
 </section>
+
+
 
 <!-- =====================================================
      RÉALISATIONS
 ===================================================== -->
-<section class="projects section" id="realisations">
+<section
+    class="projects section"
+    id="realisations"
+>
+
     <div class="container">
+
         <div class="section-header projects-heading">
-            <span class="section-label">MES RÉALISATIONS</span>
-            <h2>Des projets qui <span>prennent vie.</span></h2>
-            <p>Quelques projets et initiatives sur lesquels j'ai travaillé ou contribué.</p>
+
+            <span class="section-label">
+                MES RÉALISATIONS
+            </span>
+
+            <h2>
+                Des projets qui
+                <span>
+                    prennent vie.
+                </span>
+            </h2>
+
+            <p>
+                Quelques projets et initiatives sur lesquels
+                j'ai travaillé ou contribué.
+            </p>
+
         </div>
+
 
         <div class="projects-grid">
-            <article class="project-card">
-                <div class="project-image green"><div class="project-number">01</div><div class="project-placeholder"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i></div></div>
-                <div class="project-content"><span class="project-category green-text">ÉDUCATION</span><h3>WoeAcademy</h3><p>Plateforme et programme de formation numérique en français pour développer les compétences digitales.</p><div class="project-tags"><span>EdTech</span><span>Formation</span><span>Digital</span></div></div>
-            </article>
+
 
             <article class="project-card">
-                <div class="project-image purple"><div class="project-number">02</div><div class="project-placeholder"><i class="fa-solid fa-universal-access" aria-hidden="true"></i></div></div>
-                <div class="project-content"><span class="project-category">INCLUSION</span><h3>Aprofehto</h3><p>Plateforme numérique pour les personnes à mobilité réduite.</p><div class="project-tags"><span>Innovation</span><span>Impact</span><span>Tech</span></div></div>
+
+                <div class="project-image green">
+
+                    <div class="project-number">
+                        01
+                    </div>
+
+                    <div class="project-placeholder">
+
+                        <i
+                            class="fa-solid fa-graduation-cap"
+                            aria-hidden="true"
+                        ></i>
+
+                    </div>
+
+                </div>
+
+
+                <div class="project-content">
+
+                    <span class="project-category green-text">
+                        ÉDUCATION
+                    </span>
+
+                    <h3>
+                        WoeAcademy
+                    </h3>
+
+                    <p>
+                        Plateforme et programme de formation
+                        numérique en français pour développer
+                        les compétences digitales.
+                    </p>
+
+                    <div class="project-tags">
+
+                        <span>EdTech</span>
+                        <span>Formation</span>
+                        <span>Digital</span>
+
+                    </div>
+
+                </div>
+
             </article>
 
-            <article class="project-card">
-                <div class="project-image blue"><div class="project-number">03</div><div class="project-placeholder"><i class="fa-solid fa-building" aria-hidden="true"></i></div></div>
-                <div class="project-content"><span class="project-category">INSTITUTIONNEL</span><h3>HubCity WoeLab</h3><p>Présence digitale et accompagnement de projets technologiques au sein d'un écosystème d'innovation.</p><div class="project-tags"><span>Digital</span><span>Innovation</span><span>FabLab</span></div></div>
-            </article>
+
 
             <article class="project-card">
-                <div class="project-image green"><div class="project-number">04</div><div class="project-placeholder"><i class="fa-solid fa-bullhorn" aria-hidden="true"></i></div></div>
-                <div class="project-content"><span class="project-category green-text">COMMUNICATION</span><h3>Stratégie Digitale</h3><p>Création de contenus et stratégies pour développer la présence digitale.</p><div class="project-tags"><span>Content</span><span>Social Media</span><span>Branding</span></div></div>
+
+                <div class="project-image purple">
+
+                    <div class="project-number">
+                        02
+                    </div>
+
+                    <div class="project-placeholder">
+
+                        <i
+                            class="fa-solid fa-universal-access"
+                            aria-hidden="true"
+                        ></i>
+
+                    </div>
+
+                </div>
+
+
+                <div class="project-content">
+
+                    <span class="project-category">
+                        INCLUSION
+                    </span>
+
+                    <h3>
+                        Aprofehto
+                    </h3>
+
+                    <p>
+                        Plateforme numérique pour les personnes
+                        à mobilité réduite.
+                    </p>
+
+                    <div class="project-tags">
+
+                        <span>Innovation</span>
+                        <span>Impact</span>
+                        <span>Tech</span>
+
+                    </div>
+
+                </div>
+
             </article>
+
+
+
+            <article class="project-card">
+
+                <div class="project-image blue">
+
+                    <div class="project-number">
+                        03
+                    </div>
+
+                    <div class="project-placeholder">
+
+                        <i
+                            class="fa-solid fa-building"
+                            aria-hidden="true"
+                        ></i>
+
+                    </div>
+
+                </div>
+
+
+                <div class="project-content">
+
+                    <span class="project-category">
+                        INSTITUTIONNEL
+                    </span>
+
+                    <h3>
+                        HubCity WoeLab
+                    </h3>
+
+                    <p>
+                        Présence digitale et accompagnement
+                        de projets technologiques au sein
+                        d'un écosystème d'innovation.
+                    </p>
+
+                    <div class="project-tags">
+
+                        <span>Digital</span>
+                        <span>Innovation</span>
+                        <span>FabLab</span>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <article class="project-card">
+
+                <div class="project-image green">
+
+                    <div class="project-number">
+                        04
+                    </div>
+
+                    <div class="project-placeholder">
+
+                        <i
+                            class="fa-solid fa-bullhorn"
+                            aria-hidden="true"
+                        ></i>
+
+                    </div>
+
+                </div>
+
+
+                <div class="project-content">
+
+                    <span class="project-category green-text">
+                        COMMUNICATION
+                    </span>
+
+                    <h3>
+                        Stratégie Digitale
+                    </h3>
+
+                    <p>
+                        Création de contenus et stratégies
+                        pour développer la présence digitale.
+                    </p>
+
+                    <div class="project-tags">
+
+                        <span>Content</span>
+                        <span>Social Media</span>
+                        <span>Branding</span>
+
+                    </div>
+
+                </div>
+
+            </article>
+
         </div>
+
     </div>
+
 </section>
+
+
 
 <!-- =====================================================
      EXPÉRIENCE
 ===================================================== -->
-<section class="experience section" id="experience">
+<section
+    class="experience section"
+    id="experience"
+>
+
     <div class="container">
+
         <div class="section-header">
-            <span class="section-label">MON PARCOURS</span>
-            <h2>Expériences <span>professionnelles.</span></h2>
+
+            <span class="section-label">
+                MON PARCOURS
+            </span>
+
+            <h2>
+                Expériences
+                <span>
+                    professionnelles.
+                </span>
+            </h2>
+
         </div>
 
+
         <div class="timeline">
+
+
             <div class="timeline-item">
-                <div class="timeline-date">2026 — Aujourd'hui</div><div class="timeline-line"></div>
-                <div class="timeline-content"><span>LAB MANAGER · FORMATEUR</span><h3>HubCity / WoeLab</h3><p>Responsable des aspects techniques et technologiques, du FabLab et des formations.</p></div>
+
+                <div class="timeline-date">
+                    2026 — Aujourd'hui
+                </div>
+
+                <div class="timeline-line"></div>
+
+                <div class="timeline-content">
+
+                    <span>
+                        LAB MANAGER · FORMATEUR
+                    </span>
+
+                    <h3>
+                        HubCity / WoeLab
+                    </h3>
+
+                    <p>
+                        Responsable des aspects techniques
+                        et technologiques, du FabLab et des formations.
+                    </p>
+
+                </div>
+
             </div>
+
+
+
             <div class="timeline-item">
-                <div class="timeline-date">2025 — 2026</div><div class="timeline-line"></div>
-                <div class="timeline-content"><span>FORMATEUR</span><h3>HubCity / WoeLab</h3><p>Élaboration et transmission des bases du numérique, encadrement et suivi des apprenants.</p></div>
+
+                <div class="timeline-date">
+                    2025 — 2026
+                </div>
+
+                <div class="timeline-line"></div>
+
+                <div class="timeline-content">
+
+                    <span>
+                        FORMATEUR
+                    </span>
+
+                    <h3>
+                        HubCity / WoeLab
+                    </h3>
+
+                    <p>
+                        Élaboration et transmission des bases
+                        du numérique, encadrement et suivi
+                        des apprenants.
+                    </p>
+
+                </div>
+
             </div>
+
+
+
             <div class="timeline-item">
-                <div class="timeline-date">2024</div><div class="timeline-line"></div>
-                <div class="timeline-content"><span>COMMUNITY MANAGER</span><h3>WYZE AFRICA</h3><p>Création de contenus, animation des réseaux sociaux et contribution à la stratégie digitale.</p></div>
+
+                <div class="timeline-date">
+                    2024
+                </div>
+
+                <div class="timeline-line"></div>
+
+                <div class="timeline-content">
+
+                    <span>
+                        COMMUNITY MANAGER
+                    </span>
+
+                    <h3>
+                        WYZE AFRICA
+                    </h3>
+
+                    <p>
+                        Création de contenus, animation des
+                        réseaux sociaux et contribution à
+                        la stratégie digitale.
+                    </p>
+
+                </div>
+
             </div>
+
+
+
             <div class="timeline-item">
-                <div class="timeline-date">2020 — 2024</div><div class="timeline-line"></div>
-                <div class="timeline-content"><span>RÉPÉTITEUR INDÉPENDANT</span><h3>Accompagnement pédagogique</h3><p>Accompagnement individualisé d'apprenants et développement de compétences pédagogiques.</p></div>
+
+                <div class="timeline-date">
+                    2020 — 2024
+                </div>
+
+                <div class="timeline-line"></div>
+
+                <div class="timeline-content">
+
+                    <span>
+                        RÉPÉTITEUR INDÉPENDANT
+                    </span>
+
+                    <h3>
+                        Accompagnement pédagogique
+                    </h3>
+
+                    <p>
+                        Accompagnement individualisé
+                        d'apprenants et développement
+                        de compétences pédagogiques.
+                    </p>
+
+                </div>
+
             </div>
+
         </div>
+
     </div>
+
 </section>
+
+
 
 <!-- =====================================================
      CERTIFICATIONS
 ===================================================== -->
-<section class="certifications section" id="certificats">
+<section
+    class="certifications section"
+    id="certificats"
+>
+
     <div class="container">
+
         <div class="section-header">
-            <span class="section-label">FORMATIONS & CERTIFICATIONS</span>
-            <h2>Mes formations & <span>certifications.</span></h2>
+
+            <span class="section-label">
+                FORMATIONS & CERTIFICATIONS
+            </span>
+
+            <h2>
+                Mes formations &
+                <span>
+                    certifications.
+                </span>
+            </h2>
+
         </div>
 
+
         <div class="certificates-grid">
+
+
             <article class="certificate">
-                <div class="certificate-icon"><i class="fa-solid fa-certificate" aria-hidden="true"></i></div>
-                <div><h3>Référent Digital</h3><p>ADN — Académie Digitale Numérique</p><small>Février 2024 — Novembre 2024</small></div>
+
+                <div class="certificate-icon">
+
+                    <i
+                        class="fa-solid fa-certificate"
+                        aria-hidden="true"
+                    ></i>
+
+                </div>
+
+                <div>
+
+                    <h3>
+                        Référent Digital
+                    </h3>
+
+                    <p>
+                        ADN — Académie Digitale Numérique
+                    </p>
+
+                    <small>
+                        Février 2024 — Novembre 2024
+                    </small>
+
+                </div>
+
             </article>
+
+
+
             <article class="certificate">
-                <div class="certificate-icon"><i class="fa-solid fa-bullseye" aria-hidden="true"></i></div>
-                <div><h3>Marketing Digital</h3><p>Université Numérique Cheikh Hamidou Kane</p><small>Janvier 2025 — Mars 2025</small></div>
+
+                <div class="certificate-icon">
+
+                    <i
+                        class="fa-solid fa-bullseye"
+                        aria-hidden="true"
+                    ></i>
+
+                </div>
+
+                <div>
+
+                    <h3>
+                        Marketing Digital
+                    </h3>
+
+                    <p>
+                        Université Numérique Cheikh Hamidou Kane
+                    </p>
+
+                    <small>
+                        Janvier 2025 — Mars 2025
+                    </small>
+
+                </div>
+
             </article>
+
+
+
             <article class="certificate">
-                <div class="certificate-icon solar"><i class="fa-solid fa-solar-panel" aria-hidden="true"></i></div>
-                <div><h3>Entrepreneur Solaire</h3><p>Energie Génération</p><small>Décembre 2025 — Mars 2026</small></div>
+
+                <div class="certificate-icon solar">
+
+                    <i
+                        class="fa-solid fa-solar-panel"
+                        aria-hidden="true"
+                    ></i>
+
+                </div>
+
+                <div>
+
+                    <h3>
+                        Entrepreneur Solaire
+                    </h3>
+
+                    <p>
+                        Energie Génération
+                    </p>
+
+                    <small>
+                        Décembre 2025 — Mars 2026
+                    </small>
+
+                </div>
+
             </article>
+
         </div>
+
     </div>
+
 </section>
+
+
 
 <!-- =====================================================
      CONTACT
 ===================================================== -->
-<section class="contact section" id="contact">
+<section
+    class="contact section"
+    id="contact"
+>
+
     <div class="container">
+
         <div class="contact-box">
+
+
+            <!-- INFORMATIONS -->
             <div class="contact-content">
-                <span class="section-label">CONTACT</span>
-                <h2>Une idée ? <span>Construisons-la.</span></h2>
-                <p>Vous avez un projet digital, une mission, une collaboration ou simplement une idée à discuter ? Parlons-en.</p>
+
+                <span class="section-label">
+                    CONTACT
+                </span>
+
+                <h2>
+                    Une idée ?
+                    <span>
+                        Construisons-la.
+                    </span>
+                </h2>
+
+                <p>
+                    Vous avez un projet digital, une mission,
+                    une collaboration ou simplement une idée
+                    à discuter ? Parlons-en.
+                </p>
+
 
                 <div class="contact-info">
-                    <a href="mailto:komlanmissodey@gmail.com"><i class="fa-solid fa-envelope" aria-hidden="true"></i><span>komlanmissodey@gmail.com</span></a>
-                    <a href="https://wa.me/22892226781?text=Bonjour%20Komlan%2C%20je%20vous%20contacte%20depuis%20votre%20portfolio." target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i><span>Discuter sur WhatsApp</span></a>
-                    <a href="https://signal.me/#eu/2xGPBffqzjXuIoJhr8UoOeVmoA6LGnT9VMKqyS-OVjg2L6_BD2ROvIeMP_PhtR1z" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-comment" aria-hidden="true"></i><span>Discuter sur Signal</span></a>
-                    <div><i class="fa-solid fa-location-dot" aria-hidden="true"></i><span>Lomé, Togo</span></div>
+
+
+                    <!-- EMAIL -->
+                    <a
+                        href="mailto:komlanmissodey@gmail.com"
+                    >
+
+                        <i
+                            class="fa-solid fa-envelope"
+                            aria-hidden="true"
+                        ></i>
+
+                        <span>
+                            komlanmissodey@gmail.com
+                        </span>
+
+                    </a>
+
+
+                    <!-- WHATSAPP -->
+                    <a
+                        href="https://wa.me/22892226781?text=Bonjour%20Komlan%2C%20je%20vous%20contacte%20depuis%20votre%20portfolio."
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+
+                        <i
+                            class="fa-brands fa-whatsapp"
+                            aria-hidden="true"
+                        ></i>
+
+                        <span>
+                            Discuter sur WhatsApp
+                        </span>
+
+                    </a>
+
+
+                    <!-- SIGNAL -->
+                    <a
+                        href="https://signal.me/#eu/2xGPBffqzjXuIoJhr8UoOeVmoA6LGnT9VMKqyS-OVjg2L6_BD2ROvIeMP_PhtR1z"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+
+                        <i
+                            class="fa-solid fa-comment"
+                            aria-hidden="true"
+                        ></i>
+
+                        <span>
+                            Discuter sur Signal
+                        </span>
+
+                    </a>
+
+
+                    <!-- LOCALISATION -->
+                    <div>
+
+                        <i
+                            class="fa-solid fa-location-dot"
+                            aria-hidden="true"
+                        ></i>
+
+                        <span>
+                            Lomé, Togo
+                        </span>
+
+                    </div>
+
                 </div>
+
             </div>
 
-            <form id="contactForm" class="contact-form" method="POST" novalidate>
-                <input type="hidden" name="access_key" value="bf85ae27-7fdc-48fa-bdac-7b53ba458b35">
-                <input type="hidden" name="subject" value="Nouveau message depuis le portfolio de Komlan Missodey">
-                <input type="hidden" name="from_name" value="Portfolio Komlan Missodey">
+
+
+            <!-- FORMULAIRE -->
+            <form
+                id="contactForm"
+                class="contact-form"
+                method="POST"
+                novalidate
+            >
+
+                <!-- WEB3FORMS -->
+                <input
+                    type="hidden"
+                    name="access_key"
+                    value="bf85ae27-7fdc-48fa-bdac-7b53ba458b35"
+                >
+
+                <input
+                    type="hidden"
+                    name="subject"
+                    value="Nouveau message depuis le portfolio de Komlan Missodey"
+                >
+
+                <input
+                    type="hidden"
+                    name="from_name"
+                    value="Portfolio Komlan Missodey"
+                >
+
 
                 <!-- Honeypot anti-spam -->
-                <input type="checkbox" name="botcheck" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+                <input
+                    type="checkbox"
+                    name="botcheck"
+                    class="honeypot"
+                    tabindex="-1"
+                    autocomplete="off"
+                    aria-hidden="true"
+                >
 
+
+                <!-- NOM -->
                 <div class="form-group">
-                    <label for="name">Nom</label>
-                    <input type="text" id="name" name="name" placeholder="Votre nom" autocomplete="name" minlength="2" maxlength="100" required>
+
+                    <label for="name">
+                        Nom
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Votre nom"
+                        autocomplete="name"
+                        minlength="2"
+                        maxlength="100"
+                        required
+                    >
+
                 </div>
 
+
+                <!-- EMAIL -->
                 <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="votre@email.com" autocomplete="email" maxlength="150" required>
+
+                    <label for="email">
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="votre@email.com"
+                        autocomplete="email"
+                        maxlength="150"
+                        required
+                    >
+
                 </div>
 
+
+                <!-- SUJET -->
                 <div class="form-group">
-                    <label for="message_subject">Sujet</label>
-                    <input type="text" id="message_subject" name="message_subject" placeholder="Sujet de votre message" maxlength="150" required>
+
+                    <label for="message_subject">
+                        Sujet
+                    </label>
+
+                    <input
+                        type="text"
+                        id="message_subject"
+                        name="message_subject"
+                        placeholder="Sujet de votre message"
+                        maxlength="150"
+                        required
+                    >
+
                 </div>
 
+
+                <!-- MESSAGE -->
                 <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" rows="6" placeholder="Parlez-moi de votre projet..." minlength="10" maxlength="3000" required></textarea>
+
+                    <label for="message">
+                        Message
+                    </label>
+
+                    <textarea
+                        id="message"
+                        name="message"
+                        rows="6"
+                        placeholder="Parlez-moi de votre projet..."
+                        minlength="10"
+                        maxlength="3000"
+                        required
+                    ></textarea>
+
                 </div>
 
-                <button type="submit" class="btn btn-primary" id="submitButton">
-                    <span>Envoyer le message</span>
-                    <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+
+                <!-- ENVOI -->
+                <button
+                    type="submit"
+                    class="btn btn-primary"
+                    id="submitButton"
+                >
+
+                    <span>
+                        Envoyer le message
+                    </span>
+
+                    <i
+                        class="fa-solid fa-paper-plane"
+                        aria-hidden="true"
+                    ></i>
+
                 </button>
 
-                <div id="formMessage" class="form-message" role="status" aria-live="polite"></div>
-                <small class="form-note">Vos informations sont utilisées uniquement pour répondre à votre demande.</small>
+
+                <!-- MESSAGE FORMULAIRE -->
+                <div
+                    id="formMessage"
+                    class="form-message"
+                    role="status"
+                    aria-live="polite"
+                ></div>
+
+
+                <small class="form-note">
+
+                    Vos informations sont utilisées
+                    uniquement pour répondre à votre demande.
+
+                </small>
+
             </form>
+
         </div>
+
     </div>
+
 </section>
 
 </main>
+
+
 
 <!-- =====================================================
      FOOTER
 ===================================================== -->
 <footer>
+
     <div class="container footer-content">
+
+
+        <!-- IDENTITÉ -->
         <div>
-            <img src="./asset/logo-KM-transparent.png" alt="Logo KM" class="footer-logo" loading="lazy">
-            <p>Designer Web · Référent Digital · Community Manager · Formateur</p>
+
+            <img
+                src="./asset/logo-KM-transparent.png"
+                alt="Logo KM"
+                class="footer-logo"
+                loading="lazy"
+            >
+
+            <p>
+                Designer Web · Référent Digital ·
+                Community Manager · Formateur
+            </p>
+
         </div>
 
+
+        <!-- RÉSEAUX -->
         <div class="footer-socials">
-            <a href="https://www.linkedin.com/in/komlanmissodey/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
-            <a href="https://www.facebook.com/referentkomlanmissodey" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
-            <a href="https://www.instagram.com/komlanmissodey/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
-            <a href="https://github.com/Komlanmissodey" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
+
+
+            <a
+                href="https://www.linkedin.com/in/komlanmissodey/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+            >
+
+                <i
+                    class="fa-brands fa-linkedin-in"
+                    aria-hidden="true"
+                ></i>
+
+            </a>
+
+
+            <a
+                href="https://www.facebook.com/referentkomlanmissodey"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+            >
+
+                <i
+                    class="fa-brands fa-facebook-f"
+                    aria-hidden="true"
+                ></i>
+
+            </a>
+
+
+            <a
+                href="https://www.instagram.com/komlanmissodey/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+            >
+
+                <i
+                    class="fa-brands fa-instagram"
+                    aria-hidden="true"
+                ></i>
+
+            </a>
+
+
+            <a
+                href="https://github.com/Komlanmissodey"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+            >
+
+                <i
+                    class="fa-brands fa-github"
+                    aria-hidden="true"
+                ></i>
+
+            </a>
+
         </div>
+
     </div>
 
-    <div class="copyright">© <span id="year"></span> Komlan Missodey. Tous droits réservés.</div>
+
+    <!-- COPYRIGHT -->
+    <div class="copyright">
+
+        ©
+        <span id="year"></span>
+        Komlan Missodey.
+        Tous droits réservés.
+
+    </div>
+
 </footer>
 
-<!-- Retour en haut -->
-<button type="button" id="backTop" class="back-top" aria-label="Retour en haut" title="Retour en haut">
-    <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+
+
+<!-- =====================================================
+     RETOUR EN HAUT
+===================================================== -->
+<button
+    type="button"
+    id="backTop"
+    class="back-top"
+    aria-label="Retour en haut"
+    title="Retour en haut"
+>
+
+    <i
+        class="fa-solid fa-arrow-up"
+        aria-hidden="true"
+    ></i>
+
 </button>
+
+
 
 <!-- =====================================================
      MESSAGERIE FLOTTANTE
+     WhatsApp / Signal / Calendly
 ===================================================== -->
-<div class="messaging-widget" id="messagingWidget">
-    <div class="messaging-menu" id="messagingMenu" aria-hidden="true">
-        <div class="messaging-menu-title">Besoin d'échanger ?</div>
+<div
+    class="messaging-widget"
+    id="messagingWidget"
+>
 
-        <a href="https://wa.me/22892226781?text=Bonjour%20Komlan%2C%20je%20vous%20contacte%20depuis%20votre%20portfolio." target="_blank" rel="noopener noreferrer" class="messaging-option whatsapp-option">
-            <span class="messaging-icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></span>
-            <span>WhatsApp</span>
+
+    <!-- MENU -->
+    <div
+        class="messaging-menu"
+        id="messagingMenu"
+        aria-hidden="true"
+    >
+
+        <div class="messaging-menu-title">
+            Besoin d'échanger ?
+        </div>
+
+
+        <!-- WHATSAPP -->
+        <a
+            href="https://wa.me/22892226781?text=Bonjour%20Komlan%2C%20je%20vous%20contacte%20depuis%20votre%20portfolio."
+            target="_blank"
+            rel="noopener noreferrer"
+            class="messaging-option whatsapp-option"
+        >
+
+            <span class="messaging-icon">
+
+                <i
+                    class="fa-brands fa-whatsapp"
+                    aria-hidden="true"
+                ></i>
+
+            </span>
+
+            <span>
+                WhatsApp
+            </span>
+
         </a>
 
-        <a href="https://signal.me/#eu/2xGPBffqzjXuIoJhr8UoOeVmoA6LGnT9VMKqyS-OVjg2L6_BD2ROvIeMP_PhtR1z" target="_blank" rel="noopener noreferrer" class="messaging-option signal-option">
-            <span class="messaging-icon"><i class="fa-solid fa-comment" aria-hidden="true"></i></span>
-            <span>Signal</span>
+
+        <!-- SIGNAL -->
+        <a
+            href="https://signal.me/#eu/2xGPBffqzjXuIoJhr8UoOeVmoA6LGnT9VMKqyS-OVjg2L6_BD2ROvIeMP_PhtR1z"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="messaging-option signal-option"
+        >
+
+            <span class="messaging-icon">
+
+                <i
+                    class="fa-solid fa-comment"
+                    aria-hidden="true"
+                ></i>
+
+            </span>
+
+            <span>
+                Signal
+            </span>
+
         </a>
 
-        <!-- Remplace TON_IDENTIFIANT par ton vrai identifiant Calendly -->
-        <a href="https://calendly.com/TON_IDENTIFIANT" target="_blank" rel="noopener noreferrer" class="messaging-option calendly-option">
-            <span class="messaging-icon"><i class="fa-regular fa-calendar-check" aria-hidden="true"></i></span>
-            <span>Prendre rendez-vous</span>
+
+        <!-- CALENDLY -->
+        <a
+            href="https://calendly.com/komlanmissodey/30min"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="messaging-option calendly-option"
+        >
+
+            <span class="messaging-icon">
+
+                <i
+                    class="fa-regular fa-calendar-check"
+                    aria-hidden="true"
+                ></i>
+
+            </span>
+
+            <span>
+                Prendre rendez-vous
+            </span>
+
         </a>
 
-        <!-- Le chatbot sera branché dans script.js -->
-        <button type="button" class="messaging-option chatbot-option" id="chatbotButton">
-            <span class="messaging-icon"><i class="fa-solid fa-robot" aria-hidden="true"></i></span>
-            <span>Assistant IA</span>
-        </button>
     </div>
 
-    <button type="button" class="messaging-button" id="messagingButton" aria-label="Ouvrir les options de contact" aria-expanded="false" aria-controls="messagingMenu" title="Me contacter">
-        <i class="fa-solid fa-comments" aria-hidden="true"></i>
+
+    <!-- BOUTON CONTACT -->
+    <button
+        type="button"
+        class="messaging-button"
+        id="messagingButton"
+        aria-label="Ouvrir les options de contact"
+        aria-expanded="false"
+        aria-controls="messagingMenu"
+        title="Me contacter"
+    >
+
+        <i
+            class="fa-solid fa-comments"
+            aria-hidden="true"
+        ></i>
+
     </button>
+
 </div>
 
-<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+
+<!-- =====================================================
+     TOAST
+===================================================== -->
+<div
+    class="toast"
+    id="toast"
+    role="status"
+    aria-live="polite"
+></div>
+
 
 </body>
 </html>
