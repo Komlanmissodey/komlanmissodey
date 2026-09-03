@@ -1,5 +1,6 @@
 /* =====================================================
    KOMLAN MISSODEY — PORTFOLIO V2
+   CSS propre, responsive et compatible sombre/clair
 ===================================================== */
 
 :root {
@@ -269,22 +270,137 @@ footer { padding-top: 40px; background: var(--surface); border-top: 1px solid va
 .back-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
 .back-top:hover { border-color: var(--green); color: var(--green); }
 
-/* MESSAGERIE */
-.messaging-widget { position: fixed; right: 25px; bottom: 25px; z-index: 1200; }
-.messaging-button { width: 60px; height: 60px; display: grid; place-items: center; border: 0; border-radius: 50%; background: linear-gradient(135deg, var(--primary-light), var(--green)); color: #fff; font-size: 21px; box-shadow: 0 14px 35px rgba(0,0,0,.30); transition: transform var(--transition), box-shadow var(--transition); }
-.messaging-button:hover { transform: scale(1.06); box-shadow: 0 18px 40px rgba(0,218,99,.20); }
-.messaging-button.is-open i { transform: rotate(90deg); }
-.messaging-button i { transition: transform var(--transition); }
-.messaging-menu { position: absolute; right: 0; bottom: 74px; width: 245px; padding: 10px; display: flex; flex-direction: column; gap: 4px; background: var(--surface); border: 1px solid var(--border-strong); border-radius: 18px; box-shadow: 0 24px 60px rgba(0,0,0,.35); opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(12px) scale(.96); transform-origin: bottom right; transition: opacity var(--transition), visibility var(--transition), transform var(--transition), background-color var(--transition); }
-.messaging-widget.open .messaging-menu { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0) scale(1); }
-.messaging-menu-title { padding: 8px 10px 10px; color: var(--text-soft); font-size: 9px; font-weight: 800; letter-spacing: 1.3px; text-transform: uppercase; }
-.messaging-option { width: 100%; min-height: 49px; display: flex; align-items: center; gap: 12px; padding: 7px 10px; border: 0; border-radius: 10px; background: transparent; color: var(--text); font-size: 13px; text-align: left; transition: background var(--transition), transform var(--transition); }
-.messaging-option:hover { background: var(--surface-2); transform: translateX(-2px); }
-.messaging-icon { flex: 0 0 36px; width: 36px; height: 36px; display: grid; place-items: center; border-radius: 50%; font-size: 16px; }
-.whatsapp-option .messaging-icon { background: rgba(37,211,102,.12); color: #25d366; }
-.signal-option .messaging-icon { background: rgba(91,124,250,.12); color: #5b7cfa; }
-.calendly-option .messaging-icon { background: rgba(0,115,230,.12); color: #4c9aff; }
-.chatbot-option .messaging-icon { background: rgba(0,218,99,.12); color: var(--green); }
+/* POPUP « ME CONTACTER » */
+.contact-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 3000;
+    display: grid;
+    place-items: center;
+    padding: 20px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity var(--transition), visibility var(--transition);
+}
+.contact-modal.open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+.contact-modal-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,.72);
+    backdrop-filter: blur(8px);
+}
+.contact-modal-dialog {
+    position: relative;
+    z-index: 1;
+    width: min(500px, 100%);
+    max-height: min(720px, calc(100vh - 40px));
+    overflow-y: auto;
+    padding: 34px;
+    background: var(--surface);
+    border: 1px solid var(--border-strong);
+    border-radius: 24px;
+    box-shadow: 0 30px 90px rgba(0,0,0,.45);
+    transform: translateY(18px) scale(.97);
+    transition: transform var(--transition), background-color var(--transition);
+}
+.contact-modal.open .contact-modal-dialog {
+    transform: translateY(0) scale(1);
+}
+.contact-modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 38px;
+    height: 38px;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    background: var(--surface-2);
+    color: var(--text-muted);
+    transition: color var(--transition), border-color var(--transition), transform var(--transition);
+}
+.contact-modal-close:hover {
+    color: var(--text);
+    border-color: var(--green);
+    transform: rotate(90deg);
+}
+.contact-modal-header {
+    padding-right: 42px;
+    margin-bottom: 24px;
+}
+.contact-modal-header h2 {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(32px, 6vw, 46px);
+    line-height: 1;
+    letter-spacing: -1.5px;
+}
+.contact-modal-header h2 span { color: var(--green); }
+.contact-modal-header p {
+    margin-top: 12px;
+    color: var(--text-muted);
+    font-size: 13px;
+}
+.contact-modal-options { display: grid; gap: 9px; }
+.contact-modal-option {
+    width: 100%;
+    min-height: 68px;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 10px 13px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: var(--surface-2);
+    color: var(--text);
+    text-align: left;
+    transition: transform var(--transition), border-color var(--transition), background var(--transition);
+}
+.contact-modal-option:hover {
+    transform: translateX(3px);
+    border-color: rgba(0,218,99,.45);
+    background: var(--surface-3);
+}
+.contact-modal-icon {
+    flex: 0 0 42px;
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    font-size: 18px;
+}
+.whatsapp-option .contact-modal-icon { background: rgba(37,211,102,.12); color: #25d366; }
+.signal-option .contact-modal-icon { background: rgba(91,124,250,.12); color: #5b7cfa; }
+.calendly-option .contact-modal-icon { background: rgba(0,115,230,.12); color: #4c9aff; }
+.chatbot-option .contact-modal-icon { background: rgba(0,218,99,.12); color: var(--green); }
+.contact-modal-option > span:nth-child(2) {
+    min-width: 0;
+    flex: 1;
+    display: grid;
+    gap: 2px;
+}
+.contact-modal-option strong { font-size: 13px; }
+.contact-modal-option small { color: var(--text-soft); font-size: 10px; line-height: 1.4; }
+.modal-arrow { color: var(--text-soft); font-size: 11px; }
+.contact-modal-form-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 18px;
+    padding-top: 17px;
+    border-top: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 11px;
+    text-align: center;
+}
+.contact-modal-form-link:hover { color: var(--green); }
 
 /* TOAST */
 .toast { position: fixed; left: 50%; bottom: 28px; z-index: 2000; max-width: min(420px, calc(100% - 32px)); padding: 12px 16px; border: 1px solid var(--border-strong); border-radius: 12px; background: var(--surface); color: var(--text); box-shadow: var(--shadow); font-size: 12px; opacity: 0; visibility: hidden; transform: translate(-50%, 12px); transition: opacity var(--transition), visibility var(--transition), transform var(--transition); }
@@ -350,10 +466,7 @@ footer { padding-top: 40px; background: var(--surface); border-top: 1px solid va
     .contact-form { grid-template-columns: 1fr; }
     .form-group:nth-of-type(3), .form-group:nth-of-type(4), .contact-form > button, .form-message, .form-note { grid-column: auto; }
     .footer-content { align-items: flex-start; flex-direction: column; }
-    .messaging-widget { right: 16px; bottom: 16px; }
-    .messaging-button { width: 56px; height: 56px; }
-    .messaging-menu { right: 0; bottom: 68px; width: min(245px, calc(100vw - 32px)); }
-    .back-top { right: 16px; bottom: 86px; width: 42px; height: 42px; }
+    .back-top { right: 16px; bottom: 20px; width: 42px; height: 42px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -361,107 +474,10 @@ footer { padding-top: 40px; background: var(--surface); border-top: 1px solid va
     *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
 
-/* =========================================================
-   POSITIONNEMENT DES BOUTONS FLOTTANTS
-   ========================================================= */
-
-/* Bouton de messagerie personnalisé */
-.messaging-widget {
-    position: fixed !important;
-    right: 25px !important;
-    bottom: 150px !important;
-    z-index: 9999 !important;
-}
-
-/* Bouton principal de messagerie */
-.messaging-button {
-    width: 58px !important;
-    height: 58px !important;
-    border-radius: 50% !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    cursor: pointer !important;
-    position: relative !important;
-    z-index: 10000 !important;
-}
-
-/* Menu WhatsApp / Signal / Calendly */
-.messaging-menu {
-    position: absolute !important;
-    right: 0 !important;
-    bottom: 70px !important;
-    z-index: 10001 !important;
-}
-
-/* =========================================================
-   BOUTON FASTBOTS
-   ========================================================= */
-
-/*
-   FastBots injecte son propre bouton.
-   Ces règles permettent de lui laisser de la place.
-*/
-
-/* Si FastBots utilise un bouton fixe en bas à droite */
-#fastbots-widget,
-.fastbots-widget,
-.fastbots-chat-widget {
-    z-index: 9000 !important;
-}
-
-/* =========================================================
-   RETOUR EN HAUT
-   ========================================================= */
-
-#backToTop {
-    position: fixed !important;
-    left: 25px !important;
-    bottom: 25px !important;
-    z-index: 9998 !important;
-}
-
-/* =========================================================
-   VERSION MOBILE
-   ========================================================= */
-
-@media (max-width: 768px) {
-
-    .messaging-widget {
-        right: 18px !important;
-        bottom: 135px !important;
-    }
-
-    .messaging-button {
-        width: 52px !important;
-        height: 52px !important;
-    }
-
-    .messaging-menu {
-        bottom: 62px !important;
-    }
-
-    #backToTop {
-        left: 18px !important;
-        bottom: 20px !important;
-    }
-}
-
-/* Très petits écrans */
-@media (max-width: 480px) {
-
-    .messaging-widget {
-        right: 15px !important;
-        bottom: 125px !important;
-    }
-
-    .messaging-button {
-        width: 50px !important;
-        height: 50px !important;
-    }
-
-    #backToTop {
-        left: 15px !important;
-        bottom: 15px !important;
-    }
+@media (max-width: 560px) {
+    .contact-modal { padding: 12px; }
+    .contact-modal-dialog { padding: 28px 18px 20px; border-radius: 20px; max-height: calc(100vh - 24px); }
+    .contact-modal-close { top: 12px; right: 12px; }
+    .contact-modal-header { padding-right: 38px; }
+    .contact-modal-option { min-height: 64px; }
 }
